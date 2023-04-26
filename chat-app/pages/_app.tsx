@@ -5,8 +5,8 @@ import Layout from '@/components/Layout'
 export default function App({ Component, pageProps }: AppProps) {
 
   return (
-    <Layout >
-      <Component {...pageProps} />
+    <Layout>
+      <Component {...pageProps} className="h-screen w-screen bg-green" />
     </Layout>
   )
 }

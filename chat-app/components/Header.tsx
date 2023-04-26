@@ -1,11 +1,10 @@
-import { Children } from "react";
+import HamburgerIcon from "./HamburgerIcon"
 
-export default function Header({ children }: any) {
+const Header = (props: any) => {
     return (
-        <header className="bg-dark text-light" >
-            <h2><i className="cursor-pointer">menu</i></h2>
-            {children}
+        <header className="bg-dark text-light h-16 flex justify-start" >
+            <HamburgerIcon toggleMenu={props.toggleMenu} />
         </header>
     )
-
 }
+export default Header;

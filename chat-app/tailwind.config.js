@@ -18,6 +18,7 @@ module.exports = {
       brown: "#A9907E",
       green: "#ABC4AA",
       beige: "#F3DEBA",
+      hoverMenu: "#867967"
 
     },
 
