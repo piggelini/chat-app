@@ -13,12 +13,12 @@ module.exports = {
       xl: '1440px',
     },
     colors: {
-      light: "#FFF1D8",
-      dark: "#675D50",
-      brown: "#A9907E",
+      light: "#F4EEE0",
+      dark: "#393646",
+      brown: "#6D5D6E",
       green: "#ABC4AA",
       beige: "#F3DEBA",
-      hoverMenu: "#867967"
+      hoverMenu: "#4F4557"
 
     },
 
@@ -26,5 +26,5 @@ module.exports = {
 
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 }

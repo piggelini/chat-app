@@ -1,21 +1,15 @@
-import SideBar from "./SideBar"
-import Header from "./Header"
-import { useState } from "react"
+import Navigation from "./Navigation"
 
 
 export default function Layout({ children }: any) {
 
-    const [open, setIsOpen] = useState<boolean>(false)
 
-    //Toggles the sidebar menu
-    const toggleMenu = () => {
-        setIsOpen(!open)
-    }
 
+
+    console.log("rerender")
     return (
-        <div className="bg-green h-screen w-screen">
-            <Header toggleMenu={toggleMenu} />
-            <SideBar open={open} toggleMenu={toggleMenu} />
+        <div className="bg-dark text-light">
+            <Navigation />
             {children}
         </div>
 
