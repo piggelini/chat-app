@@ -4,8 +4,8 @@ This chat application is created with Next.js with Typescript, Firebase Realtime
 
 - First you clone the project.
 - You will need Node.js v16.14.2. or a later version.
-- Npm install to install the dependencies.
-- Npm run dev to start the development server
+- npm install to install the dependencies.
+- npm run dev to start the development server
 - Go to http://localhost:3000/ in your web browser
 
 
