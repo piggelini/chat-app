@@ -1,4 +1,4 @@
-This chat application is created with Next.js with Typescript, Firebase Realtime Database and Tailwind CSS.
+This chat application is created with Next.js written in Typescript, Firebase Realtime Database and Tailwind CSS.
 
 ## Getting Started
 
