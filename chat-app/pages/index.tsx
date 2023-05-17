@@ -52,12 +52,12 @@ const Home: FC = () => {
       <Head>
         <title>Chat</title>
       </Head>
-      <div className=" flex flex-col bg-brown text-center">
+      <div className=" flex flex-col bg-brown text-center mt-16 p-6 items-center">
         <form action="">
           <label htmlFor="userID" className="p-3">Identification</label>
           <input ref={userName} placeholder="Your user ID..." className="m-3 p-1 rounded-xl text-dark" id="userID" type="text" />
         </form>
-        <button onClick={loginUser} className="bg-beige p-1.5 rounded-full text-dark mb-4 shadow">Log in</button>
+        <button onClick={loginUser} className="bg-beige p-1.5 rounded-xl text-dark m-4 shadow w-28 font-bold">Log in</button>
       </div >
     </>
   )

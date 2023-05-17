@@ -91,7 +91,7 @@ const Chat: FC = () => {
                 <h2 className='text-sm mr-1.5'>{id}</h2>
             </header>
             <main className=" bg-dark">
-                <div className="flex flex-col bg-dark pb-20 h-64
+                <div className="flex flex-col bg-dark pb-5 h-64
                     overflow-y-scroll scrollbar-thin scrollbar-thumb-brown
                     hover:scrollbar-thumb-beige scroll  ref={chatBox}" ref={chatBox}>
 
