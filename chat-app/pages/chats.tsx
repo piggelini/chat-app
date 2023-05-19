@@ -16,11 +16,12 @@ const Chats: FC = () => {
     const { user } = useContext<User | null>(UserContext) ?? {};
     let [usersChats, setUsersChats] = useState<string[]>([])
     let [chatData, setChatData] = useState<Chat[]>([])
-    console.log(user);
+
 
 
     useEffect(() => {
         const userRef = ref(db, 'users/' + user + "/chats")
+        //Get all the chats from the logged in and updates if there is a new chat added
         onValue(userRef, (snapshot) => {
             let chats: string[] = [];
             snapshot.forEach((childSnapshot) => {
@@ -31,24 +32,27 @@ const Chats: FC = () => {
             })
             setUsersChats(chats);
         })
+
+
+
+
     }, [])
 
 
+    //
     useEffect(() => {
-        console.log(usersChats)
+
         let data: Chat[] = [];
         usersChats.forEach((id) => {
             const chatRef = ref(db, 'chats/' + id)
             onValue(chatRef, (snapshot) => {
                 data.push(snapshot.val());
                 setChatData(data);
-                console.log(data)
+
             })
         })
 
     }, [usersChats])
-
-
 
 
 
@@ -61,11 +65,11 @@ const Chats: FC = () => {
                 {chatData.map((chat, index) => {
 
                     return (
-                        <Link href={`chat/${usersChats[index]}`} className="">
+                        <Link key={usersChats[index]} href={`chat/${usersChats[index]}`} className="">
                             <li className="bg-brown mt-3 w-3/4 p-2 shadow-md rounded-r-lg flex">
                                 <p className="font-bold p-2">{Object.keys(chat.members).map((member) => {
                                     if (member !== user) {
-                                        console.log(member)
+
                                         return member
                                     }
                                 })

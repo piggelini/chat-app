@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import Link from "next/link"
 import { HiChevronLeft } from 'react-icons/hi';
 import { AiOutlineSend } from "react-icons/ai"
@@ -7,16 +6,17 @@ import { db } from "@/firebase/database"
 import { UserContext } from '@/context/user-context';
 import { FC, useContext, useRef, useState, useEffect } from "react"
 import { User } from "@/context/user-context"
-import { ParsedUrlQuery } from 'querystring';
+import { GetServerSideProps } from 'next';
 
 
 //This page component renders the specific chat you clicked on. 
+type chatProps = {
+    id?: string
+}
 
 
-const Chat: FC = () => {
+const Chat: FC = ({ id }: chatProps) => {
 
-    const router = useRouter()
-    const { id }: ParsedUrlQuery = router.query
     const { user } = useContext<User | null>(UserContext) ?? {}
     const message = useRef<HTMLInputElement>(null)
     const chatBox = useRef<HTMLDivElement>(null)
@@ -43,11 +43,15 @@ const Chat: FC = () => {
             const data: Message[] = []
             snapshot.forEach((childSnapshot) => {
                 data.push(childSnapshot.val());
+
             })
             setMessages(data);
-
         })
     }, [id, user])
+
+
+
+
 
     //Make sure the scrollbar is at the bottom of the page when a new message comes up or when the user enters the chat
     const scrollToBottom = () => {
@@ -56,8 +60,6 @@ const Chat: FC = () => {
         }
     }
 
-
-    console.log(messages)
 
     // This function runs when a user sends a message
     const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
@@ -99,7 +101,7 @@ const Chat: FC = () => {
                     {messages.map((mess) => {
                         return (
 
-                            <div className={` text-xs bg-brown p-1 m-3 rounded w-2/4 
+                            <div key={mess.timestamp} className={` text-xs bg-brown p-2 m-3 rounded w-2/4 
                             ${user === mess.sender ? "bg-green self-end text-dark" : ""}`}>
                                 <p className="font-bold">{mess.sender} </p>
                                 <p>{mess.message}</p>
@@ -126,3 +128,8 @@ const Chat: FC = () => {
 }
 
 export default Chat;
+
+//Gets the chat-id before the page is rendered
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+    return { props: { id: query.id } }
+}

@@ -7,7 +7,6 @@ firebaseApp;
 
 
 export default function App({ Component, pageProps }: AppProps) {
-  console.log(firebaseApp)
 
   return (
     <ContextProvider>

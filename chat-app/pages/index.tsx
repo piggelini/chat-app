@@ -32,8 +32,7 @@ const Home: FC = () => {
         const data = snapshot.exists();
 
         if (data) {
-          // setIsLoggedIn(true);
-          console.log(userId + " is logged in")
+
           if (setUser) {
             setUser(userId)
           }
@@ -42,7 +41,6 @@ const Home: FC = () => {
           console.log("Wrong username")
         }
       }).catch((error) => {
-        console.log(error)
       })
     }
   }
