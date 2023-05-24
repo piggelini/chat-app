@@ -50,7 +50,7 @@ const Home: FC = () => {
       <Head>
         <title>Chat</title>
       </Head>
-      <div className=" flex flex-col bg-brown text-center mt-16 p-6 items-center">
+      <div className=" flex flex-col bg-purple text-center mt-16 p-6 items-center">
         <form action="">
           <label htmlFor="userID" className="p-3">Identification</label>
           <input ref={userName} placeholder="Your user ID..." className="m-3 p-1 rounded-xl text-dark" id="userID" type="text" />

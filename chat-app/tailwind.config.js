@@ -15,7 +15,7 @@ module.exports = {
     colors: {
       light: "#F4EEE0",
       dark: "#393646",
-      brown: "#6D5D6E",
+      purple: "#6D5D6E",
       green: "#ABC4AA",
       beige: "#F3DEBA",
       hoverMenu: "#4F4557"

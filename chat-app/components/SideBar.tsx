@@ -5,10 +5,19 @@ import { useContext, FC } from "react"
 import { NavProps } from "./Navigation"
 
 const SideBar: FC<NavProps> = ({ toggleMenu, open }) => {
-    const { user } = useContext<User | null>(UserContext) ?? {};
+    const { user, setUser } = useContext<User | null>(UserContext) ?? {};
+
+    const logOut = () => {
+        toggleMenu();
+        if (setUser) {
+            setUser("");
+        }
+
+
+    }
 
     return (
-        <aside className={`fixed bg-brown top-0 left-0 h-full w-40 left 
+        <aside className={`fixed bg-purple top-0 left-0 h-full w-48 left 
         flex flex-col  shadow-lg transition-all duration-300 ease-in-out 
         ${open ? "translate-x-0" : "-translate-x-full"}`}>
 
@@ -16,7 +25,7 @@ const SideBar: FC<NavProps> = ({ toggleMenu, open }) => {
                 <HamburgerIcon open={open} toggleMenu={toggleMenu} />
             </section>
             <section className="mt-20 text-light">
-                <Link href="/" onClick={toggleMenu}><p className="hover:bg-hoverMenu p-2" >{user !== "" ? "Log out" : "Log in"}</p></Link>
+                <Link href="/" onClick={logOut}><p className="hover:bg-hoverMenu p-2" >{user !== "" ? "Log out" : "Log in"}</p></Link>
             </section>
         </aside>
     )
